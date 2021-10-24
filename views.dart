@@ -31,26 +31,27 @@
 
 
 # [2] Card Veiw with card being button
-/// This is the stateless widget that the main application instantiates.
-class MyStatelessWidget extends StatelessWidget {
-  const MyStatelessWidget({Key? key}) : super(key: key);
-
-  @override
+@override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
       child: Card(
         child: InkWell(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const <Widget>[
+              ListTile(
+                leading: Icon(Icons.album),
+                title: Text('The Enchanted Nightingale'),
+                subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+              ),
+            ],
+          ),
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
             print('Card tapped.');
           },
-          child: const SizedBox(
-            width: 300,
-            height: 100,
-            child: Text('A card that can be tapped'),
-          ),
         ),
       ),
     );
   }
-}
+
